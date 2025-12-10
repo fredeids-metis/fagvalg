@@ -1132,6 +1132,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initSpeechBubbles();
 
     // ============================================
+    // Optional Math Toggle (Slide 6)
+    // ============================================
+
+    /**
+     * Initialize optional math boxes on slide 6
+     * Allows toggling between colored and grayed-out state
+     */
+    function initOptionalMath() {
+        const optionalMathBoxes = document.querySelectorAll('.math-box.optional-math');
+
+        optionalMathBoxes.forEach(box => {
+            box.addEventListener('click', (e) => {
+                e.stopPropagation();
+                box.classList.toggle('grayed-out');
+            });
+        });
+    }
+
+    // Initialize optional math toggle
+    initOptionalMath();
+
+    // ============================================
     // Image Modal (Blokkskjema)
     // ============================================
     const imageModal = document.getElementById('imageModal');

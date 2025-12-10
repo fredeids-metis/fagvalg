@@ -333,7 +333,7 @@
 
 .program-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
@@ -344,6 +344,11 @@
     opacity: 0;
     transform: scale(0.9);
     transition: all var(--transition-medium);
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .program-card.visible {
@@ -352,12 +357,12 @@
 }
 
 .program-card.mk {
-    background: var(--mk-light);
+    background: linear-gradient(135deg, #e5f3f7 0%, #cce7ef 100%);
     border: 2px solid var(--mk);
 }
 
 .program-card.musikk {
-    background: var(--musikk-light);
+    background: linear-gradient(135deg, #fdf3ed 0%, #f5e0d4 100%);
     border: 2px solid var(--musikk);
 }
 
@@ -377,7 +382,9 @@
 .program-card .color-dot {
     width: 12px;
     height: 12px;
+    min-width: 12px;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .program-card.mk .color-dot { background: var(--mk); }
@@ -402,6 +409,7 @@
 
 .program-card .year-value {
     color: var(--text-medium);
+    text-align: right;
 }
 
 /* ============================================
@@ -592,6 +600,35 @@
     border-radius: 12px;
     border-left: 4px solid #ff9800;
     color: var(--text-medium);
+}
+
+/* Valgfri matematikk (S2/R2) - klikkbar for å toggle grå */
+.math-box.optional-math {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.math-box.optional-math:hover {
+    transform: scale(1.05);
+}
+
+.math-box.optional-math.grayed-out {
+    background: #e0e0e0;
+    border-color: #9e9e9e;
+    color: #757575;
+}
+
+.math-box.optional-math::after {
+    content: "Valgfritt";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: normal;
+    opacity: 0.8;
 }
 
 /* ============================================
@@ -1775,6 +1812,12 @@
    Tilpasninger for mindre skjermer
    ============================================ */
 
+@media (max-width: 1100px) {
+    .program-grid {
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+    }
+}
+
 @media (max-width: 900px) {
     .slide-header {
         padding: 30px 5%;
@@ -1795,6 +1838,10 @@
     .links-grid,
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .program-card h3 {
+        flex-wrap: nowrap;
     }
 
     .counselors {
