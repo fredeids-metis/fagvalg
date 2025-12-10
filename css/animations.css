@@ -1,0 +1,826 @@
+/* ==========================================================================
+   ANIMATIONS.CSS
+   Alle animasjoner for BPG Fagvalg Presentasjon
+   ========================================================================== */
+
+/* ==========================================================================
+   1. KEYFRAMES - Bakgrunnsanimasjoner
+   ========================================================================== */
+
+/**
+ * Float-blob animasjon
+ * Brukes for dekorative blob-elementer pa tittelslide
+ */
+@keyframes float-blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -20px) scale(1.05); }
+}
+
+/**
+ * Pulse-ring animasjon
+ * Brukes for dekorative sirkler som pulserer
+ */
+@keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.15; }
+    50% { transform: scale(1.1); opacity: 0.25; }
+}
+
+/**
+ * Bounce-hint animasjon
+ * Brukes for click-reveal indikator
+ */
+@keyframes bounce-hint {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+
+/* ==========================================================================
+   2. KEYFRAMES - Inngangsanimasjoner
+   ========================================================================== */
+
+/**
+ * Fade-in-down
+ * Element fader inn mens det beveger seg nedover
+ */
+@keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 0.85; transform: translateY(0); }
+}
+
+/**
+ * Fade-in-up
+ * Element fader inn mens det beveger seg oppover
+ */
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/**
+ * Fade-in-scale
+ * Element fader inn mens det skaleres opp
+ */
+@keyframes fade-in-scale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ==========================================================================
+   3. KEYFRAMES - Highlight/Fokus-animasjoner
+   ========================================================================== */
+
+/**
+ * Highlight-pulse-1
+ * Pulserende highlight-effekt for fordypningselementer (forste)
+ */
+@keyframes highlight-pulse-1 {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+/**
+ * Highlight-pulse-2
+ * Pulserende highlight-effekt for fordypningselementer (andre)
+ */
+@keyframes highlight-pulse-2 {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+
+/* ==========================================================================
+   4. TITTELSLIDE ANIMASJONER
+   ========================================================================== */
+
+/**
+ * Bakgrunns-blobs med float-animasjon
+ */
+.title-slide::before {
+    animation: float-blob 8s ease-in-out infinite;
+}
+
+.title-slide::after {
+    animation: float-blob 10s ease-in-out infinite reverse;
+}
+
+/**
+ * Dekorative sirkler med pulse-animasjon
+ */
+.title-decoration-1 {
+    animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.title-decoration-2 {
+    animation: pulse-ring 5s ease-in-out infinite 1s;
+}
+
+.title-decoration-3 {
+    animation: pulse-ring 3s ease-in-out infinite 0.5s;
+}
+
+/**
+ * Tittelslide innholdselementer
+ */
+.title-slide .logo {
+    opacity: 0;
+    animation: fade-in-down 0.8s ease forwards 0.2s;
+}
+
+.title-slide h1 {
+    opacity: 0;
+    animation: fade-in-up 0.8s ease forwards 0.5s;
+}
+
+.title-slide .subtitle {
+    opacity: 0;
+    animation: fade-in-up 0.8s ease forwards 0.8s;
+}
+
+.title-slide .year-badge {
+    opacity: 0;
+    animation: fade-in-scale 0.6s ease forwards 1.1s;
+}
+
+
+/* ==========================================================================
+   5. FAGVALG-TABELL ANIMASJONER
+   ========================================================================== */
+
+/**
+ * Fordypning-highlight med pulserende animasjon
+ */
+.fagvalg-table .fordypning-1 {
+    animation: highlight-pulse-1 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.fagvalg-table .fordypning-2 {
+    animation: highlight-pulse-2 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+
+/* ==========================================================================
+   6. TRANSITION-VARIABLER (referanse)
+   Definert i :root, brukes for konsistente overganger
+   ========================================================================== */
+
+/*
+   --transition-fast: 0.2s ease;
+   --transition-medium: 0.4s ease;
+   --transition-slow: 0.6s ease;
+*/
+
+
+/* ==========================================================================
+   7. ELEMENT TRANSITIONS
+   ========================================================================== */
+
+/**
+ * Slide overganger - Avanserte effekter
+ * Kombinerer fade, slide og scale for smooth overganger
+ */
+.slide {
+    /* Base transition for alle transform-egenskaper */
+    transition:
+        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.5s;
+
+    /* Standard inaktiv tilstand - usynlig, skalert ned og forskjøvet */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50px) scale(0.98);
+
+    /* GPU-akselerasjon for smooth animasjoner */
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+/**
+ * Aktiv slide - fullt synlig og i posisjon
+ */
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+}
+
+/**
+ * Ending slide - spesiell håndtering (ingen transform)
+ */
+.slide.ending-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+/**
+ * Forrige slides (lavere nummer) - forskjøvet til venstre
+ * Brukes når man navigerer fremover
+ */
+.slides-container[data-direction="next"] .slide:not(.active) {
+    transform: translateX(-50px) scale(0.98);
+}
+
+/**
+ * Neste slides (høyere nummer) - forskjøvet til høyre
+ * Brukes når man navigerer bakover
+ */
+.slides-container[data-direction="prev"] .slide:not(.active) {
+    transform: translateX(50px) scale(0.98);
+}
+
+/**
+ * Slide som nettopp ble forlatt - spesiell overgangseffekt
+ */
+.slide.exiting-left {
+    transform: translateX(-50px) scale(0.98);
+    opacity: 0;
+}
+
+.slide.exiting-right {
+    transform: translateX(50px) scale(0.98);
+    opacity: 0;
+}
+
+/**
+ * Progress bar overgang
+ */
+.progress-bar {
+    transition: width var(--transition-medium);
+}
+
+/**
+ * Navigasjonsknapper
+ */
+.nav-arrow {
+    transition: all var(--transition-fast);
+}
+
+/**
+ * Keyboard hint
+ */
+.keyboard-hint {
+    transition: opacity var(--transition-medium);
+}
+
+
+/* ==========================================================================
+   8. VISIBLE STATE STILER - Timeline elementer
+   ========================================================================== */
+
+/**
+ * Timeline items
+ * Standard: opacity 0, translateX(-30px)
+ * Visible: opacity 1, translateX(0)
+ */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   9. VISIBLE STATE STILER - Kolonne-kort
+   ========================================================================== */
+
+/**
+ * Column cards (tre-kolonner layout)
+ * Standard: opacity 0, translateY(30px)
+ * Visible: opacity 1, translateY(0)
+ */
+.column-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--transition-medium);
+}
+
+.column-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   10. VISIBLE STATE STILER - Program-kort
+   ========================================================================== */
+
+/**
+ * Program cards (programomrade-oversikt)
+ * Standard: opacity 0, scale(0.9)
+ * Visible: opacity 1, scale(1)
+ */
+.program-card {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+}
+
+.program-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ==========================================================================
+   11. VISIBLE STATE STILER - Fag-bokser
+   ========================================================================== */
+
+/**
+ * Fag-bokser (fellesfag vs programfag)
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.fag-box {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fag-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   12. VISIBLE STATE STILER - Fagblokker
+   ========================================================================== */
+
+/**
+ * Subject blocks (fagblokker i diagrammet)
+ * Standard: opacity 0, scale(0)
+ * Visible: opacity 1, scale(1)
+ */
+.subject-block {
+    opacity: 0;
+    transform: scale(0);
+    transition: all var(--transition-fast);
+}
+
+.subject-block.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ==========================================================================
+   13. VISIBLE STATE STILER - Matematikk-lop
+   ========================================================================== */
+
+/**
+ * Math paths (matematikkvalg flowchart)
+ * Standard: opacity 0, translateX(-30px)
+ * Visible: opacity 1, translateX(0)
+ */
+.math-path {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.math-path.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   14. VISIBLE STATE STILER - Fordypning
+   ========================================================================== */
+
+/**
+ * Fordypning steps (fordypningsforklaring)
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.fordypning-step {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fordypning-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/**
+ * Fordypning categories (fagpar-oversikt)
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.fordypning-category {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fordypning-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   15. VISIBLE STATE STILER - Sprak-scenarier
+   ========================================================================== */
+
+/**
+ * Sprak scenarios (fremmedsprak-valg)
+ * Standard: opacity 0, translateX(-30px)
+ * Visible: opacity 1, translateX(0)
+ */
+.sprak-scenario {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.sprak-scenario.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   16. VISIBLE STATE STILER - Fagvalg-tabell
+   ========================================================================== */
+
+/**
+ * Fagvalg table rows
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.fagvalg-table tr {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fagvalg-table tr.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/**
+ * Fagvalg legend items
+ * Standard: opacity 0, translateX(-20px)
+ * Visible: opacity 1, translateX(0)
+ */
+.fagvalg-legend .legend-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.fagvalg-legend .legend-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   17. VISIBLE STATE STILER - Slide-notater
+   ========================================================================== */
+
+/**
+ * Slide notes
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.slide-note {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.slide-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   18. VISIBLE STATE STILER - Premisser
+   ========================================================================== */
+
+/**
+ * Premiss items (premisser for fagvalg)
+ * Standard: opacity 0, translateX(-30px)
+ * Visible: opacity 1, translateX(0)
+ */
+.premiss-item {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.premiss-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ==========================================================================
+   19. VISIBLE STATE STILER - Veien videre
+   ========================================================================== */
+
+/**
+ * Deadline box
+ * Standard: opacity 0, scale(0.9)
+ * Visible: opacity 1, scale(1)
+ */
+.deadline-box {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+}
+
+.deadline-box.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/**
+ * Link cards
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.link-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.link-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/**
+ * Important note
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.important-note {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.important-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   20. VISIBLE STATE STILER - Kontakt
+   ========================================================================== */
+
+/**
+ * Contact sections
+ * Standard: opacity 0, translateY(20px)
+ * Visible: opacity 1, translateY(0)
+ */
+.contact-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.contact-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   21. KEYBOARD HINT ANIMASJON
+   ========================================================================== */
+
+/**
+ * Keyboard hint visibility toggle
+ */
+.keyboard-hint.show {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   22. PARALLAX EFFEKT
+   ========================================================================== */
+
+/**
+ * Parallax-elementer
+ * Elementer med data-parallax attributt far subtil bevegelse ved musebevegelse
+ * Bruker CSS transform for optimal ytelse (GPU-akselerert)
+ */
+[data-parallax] {
+    will-change: transform;
+    transition: transform 0.15s ease-out;
+}
+
+/**
+ * Parallax-hastigheter
+ * Ulike hastigheter for dybdeeffekt
+ * slow: 0.3x hastighet - virker lenger unna
+ * medium: 0.5x hastighet - standard
+ * fast: 0.8x hastighet - virker naermere
+ */
+[data-parallax="slow"],
+[data-parallax="medium"],
+[data-parallax="fast"] {
+    /* Transform settes via JavaScript basert pa musebevegelse */
+    pointer-events: none;
+}
+
+
+/* ==========================================================================
+   23. PARTIKKEL-ANIMASJONER
+   Subtile flytende partikler for title-slide og ending-slide
+   ========================================================================== */
+
+/**
+ * Float-particle keyframes
+ * Sakte flytende bevegelse i ulike retninger
+ */
+@keyframes float-particle-1 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(15px, -20px);
+    }
+    50% {
+        transform: translate(-10px, -35px);
+    }
+    75% {
+        transform: translate(-20px, -15px);
+    }
+}
+
+@keyframes float-particle-2 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-20px, 15px);
+    }
+    50% {
+        transform: translate(10px, 30px);
+    }
+    75% {
+        transform: translate(25px, 10px);
+    }
+}
+
+@keyframes float-particle-3 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(25px, -25px);
+    }
+    66% {
+        transform: translate(-15px, -40px);
+    }
+}
+
+@keyframes float-particle-4 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(-30px, 20px);
+    }
+    66% {
+        transform: translate(20px, 35px);
+    }
+}
+
+/**
+ * Particles container
+ */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/**
+ * Base particle styles
+ */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/**
+ * Particle 1 - Gronn, ovre venstre
+ */
+.particle-1 {
+    width: 8px;
+    height: 8px;
+    background: rgba(95, 165, 80, 0.25);
+    top: 15%;
+    left: 10%;
+    animation: float-particle-1 20s ease-in-out infinite;
+}
+
+/**
+ * Particle 2 - Fersken, ovre hoyre
+ */
+.particle-2 {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 200, 150, 0.3);
+    top: 20%;
+    right: 15%;
+    animation: float-particle-2 25s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+/**
+ * Particle 3 - Gronn, midten venstre
+ */
+.particle-3 {
+    width: 6px;
+    height: 6px;
+    background: rgba(95, 165, 80, 0.2);
+    top: 45%;
+    left: 8%;
+    animation: float-particle-3 18s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+/**
+ * Particle 4 - Fersken, midten hoyre
+ */
+.particle-4 {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 200, 150, 0.25);
+    top: 50%;
+    right: 12%;
+    animation: float-particle-4 22s ease-in-out infinite;
+    animation-delay: -8s;
+}
+
+/**
+ * Particle 5 - Gronn, nedre venstre
+ */
+.particle-5 {
+    width: 14px;
+    height: 14px;
+    background: rgba(95, 165, 80, 0.15);
+    bottom: 25%;
+    left: 18%;
+    animation: float-particle-2 28s ease-in-out infinite;
+    animation-delay: -12s;
+}
+
+/**
+ * Particle 6 - Fersken, nedre hoyre
+ */
+.particle-6 {
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 200, 150, 0.3);
+    bottom: 30%;
+    right: 20%;
+    animation: float-particle-1 16s ease-in-out infinite;
+    animation-delay: -7s;
+}
+
+/**
+ * Particle 7 - Gronn, nedre midten
+ */
+.particle-7 {
+    width: 9px;
+    height: 9px;
+    background: rgba(95, 165, 80, 0.2);
+    bottom: 15%;
+    left: 45%;
+    animation: float-particle-3 24s ease-in-out infinite;
+    animation-delay: -10s;
+}

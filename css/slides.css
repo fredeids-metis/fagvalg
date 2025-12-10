@@ -1,0 +1,1890 @@
+/* ============================================
+   SLIDES.CSS - Slide-spesifikke stiler
+   Bergen Private Gymnas - Fagvalg Presentasjon
+   ============================================ */
+
+/* ============================================
+   TITLE SLIDE
+   Hovedtittelslide med animasjoner og dekorasjoner
+   ============================================ */
+
+.title-slide {
+    background: var(--primary-dark);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.title-slide::before {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 50%;
+    height: 80%;
+    background: var(--accent);
+    border-radius: 100% 0 0 0;
+    opacity: 0.12;
+    animation: float-blob 8s ease-in-out infinite;
+}
+
+.title-slide::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    width: 45%;
+    height: 70%;
+    background: var(--bpg-green);
+    border-radius: 0 0 100% 0;
+    opacity: 0.08;
+    animation: float-blob 10s ease-in-out infinite reverse;
+}
+
+.title-slide .logo {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: 0;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    animation: fade-in-down 0.8s ease forwards 0.2s;
+}
+
+.title-slide h1 {
+    font-family: var(--font-family-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fade-in-up 0.8s ease forwards 0.5s;
+}
+
+.title-slide .subtitle {
+    font-size: 1.4rem;
+    opacity: 0;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    animation: fade-in-up 0.8s ease forwards 0.8s;
+}
+
+.title-slide .year-badge {
+    margin-top: 40px;
+    background: var(--accent);
+    color: var(--primary-dark);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fade-in-scale 0.6s ease forwards 1.1s;
+}
+
+/* ============================================
+   TITLE DECORATIONS
+   Dekorative sirkler pa tittelslide
+   ============================================ */
+
+.title-decoration {
+    position: absolute;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    opacity: 0.15;
+}
+
+.title-decoration-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: 5%;
+    animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.title-decoration-2 {
+    width: 150px;
+    height: 150px;
+    bottom: 15%;
+    left: 10%;
+    animation: pulse-ring 5s ease-in-out infinite 1s;
+}
+
+.title-decoration-3 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 20%;
+    animation: pulse-ring 3s ease-in-out infinite 0.5s;
+}
+
+/* ============================================
+   SLIDE HEADER
+   Overskrift-seksjon for standard slides
+   ============================================ */
+
+.slide-header {
+    background: linear-gradient(135deg, var(--bpg-dark) 0%, var(--bpg-teal) 100%);
+    color: white;
+    padding: 40px 15%;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-header::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.slide-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+}
+
+.slide-header p {
+    font-size: 1.15rem;
+    opacity: 0.85;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   SLIDE CONTENT
+   Hovedinnhold-seksjon for slides
+   ============================================ */
+
+.slide-content {
+    flex: 1;
+    padding: 50px 15%;
+    background: var(--bg-white);
+}
+
+/* ============================================
+   TIMELINE SLIDE
+   Tidslinje med animerte elementer
+   ============================================ */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-month {
+    min-width: 120px;
+    background: var(--primary-dark);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-content {
+    flex: 1;
+    background: var(--accent-light);
+    padding: 20px 25px;
+    border-radius: 4px;
+    border-left: 4px solid var(--bpg-green);
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.timeline-content p {
+    color: var(--text-medium);
+    line-height: 1.5;
+}
+
+.timeline-content .deadline {
+    display: inline-block;
+    background: #ffebee;
+    color: #c62828;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ============================================
+   THREE COLUMNS LAYOUT
+   Tre-kolonners layout for "Hva skal ligge til grunn"
+   ============================================ */
+
+.three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.column-card {
+    background: var(--bg-light);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+}
+
+.column-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.column-card .icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: var(--primary-dark);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column-card .icon svg {
+    width: 36px;
+    height: 36px;
+    color: white;
+}
+
+.column-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+.column-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.column-card li {
+    padding: 8px 0;
+    color: var(--text-medium);
+    position: relative;
+    padding-left: 20px;
+}
+
+.column-card li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--bpg-green);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* ============================================
+   PROGRAM AREAS
+   Programomrade-kort (MK, Musikk, Studspes)
+   ============================================ */
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.program-card {
+    border-radius: 16px;
+    padding: 30px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+}
+
+.program-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.program-card.mk {
+    background: var(--mk-light);
+    border: 2px solid var(--mk);
+}
+
+.program-card.musikk {
+    background: var(--musikk-light);
+    border: 2px solid var(--musikk);
+}
+
+.program-card.studspes {
+    background: linear-gradient(135deg, var(--realfag-light), var(--ssa-light));
+    border: 2px solid var(--realfag);
+}
+
+.program-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.program-card .color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.program-card.mk .color-dot { background: var(--mk); }
+.program-card.musikk .color-dot { background: var(--musikk); }
+.program-card.studspes .color-dot { background: var(--realfag); }
+
+.program-card .year-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.program-card .year-row:last-child {
+    border-bottom: none;
+}
+
+.program-card .year-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.program-card .year-value {
+    color: var(--text-medium);
+}
+
+/* ============================================
+   FELLESFAG VS PROGRAMFAG
+   Sammenligning av fagtyper
+   ============================================ */
+
+.fag-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.fag-box {
+    background: var(--bg-light);
+    border-radius: 16px;
+    padding: 35px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fag-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fag-box:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+.fag-box.visible:hover {
+    transform: scale(1.02);
+}
+
+.fag-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fag-box.fellesfag h3 { color: var(--text-dark); }
+.fag-box.programfag h3 { color: var(--primary-dark); }
+
+.fag-box p {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+/* Student diagram visualization */
+.fag-visual {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.student-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.student-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-icon svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.subject-blocks {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.subject-block {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: scale(0);
+    transition: all var(--transition-fast);
+}
+
+.subject-block.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.subject-block.fellesfag-block {
+    background: #e3e3e3;
+    color: var(--text-dark);
+}
+
+.subject-block.programfag-block {
+    background: var(--primary-teal);
+    color: white;
+}
+
+/* ============================================
+   MATH FLOWCHART
+   Matematikk-lopet visualisering
+   ============================================ */
+
+.math-flowchart {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 900px;
+    margin: 20px auto 0;
+}
+
+.math-path {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.math-path.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.math-box {
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    min-width: 100px;
+}
+
+.math-box.vg1 {
+    background: var(--bg-light);
+    border: 2px solid var(--text-light);
+}
+
+.math-box.vg2 {
+    background: var(--ssa-light);
+    border: 2px solid var(--ssa-dark);
+}
+
+.math-box.vg3 {
+    background: var(--realfag-light);
+    border: 2px solid var(--realfag);
+}
+
+.math-box .points {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: var(--text-medium);
+    margin-top: 4px;
+}
+
+.math-arrow {
+    font-size: 1.5rem;
+    color: var(--primary-teal);
+}
+
+.math-end {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.math-note {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff3e0;
+    border-radius: 12px;
+    border-left: 4px solid #ff9800;
+    color: var(--text-medium);
+}
+
+/* ============================================
+   FORDYPNING EXPLANATION
+   Fordypning demo og eksempler
+   ============================================ */
+
+.fordypning-demo {
+    width: 100%;
+}
+
+.fordypning-step {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fordypning-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fordypning-definition {
+    background: var(--primary-dark);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.fordypning-example {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.fordypning-example h4 {
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.fordypning-visual {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.fag-pill {
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+.fag-pill.realfag {
+    background: var(--realfag-light);
+    border: 2px solid var(--realfag);
+    color: var(--realfag-dark);
+}
+
+.fag-pill.ssa {
+    background: var(--ssa-light);
+    border: 2px solid var(--ssa);
+    color: #7c6f00;
+}
+
+.plus-sign {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.equals-sign {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-teal);
+}
+
+.result-pill {
+    padding: 12px 20px;
+    border-radius: 4px;
+    background: var(--bpg-green);
+    color: white;
+    font-weight: 600;
+}
+
+.fordypning-requirement {
+    background: #e8f5e9;
+    border: 2px solid var(--realfag);
+    padding: 20px 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.fordypning-requirement strong {
+    color: var(--realfag-dark);
+}
+
+.fordypning-note {
+    margin-top: 15px;
+    padding: 15px 20px;
+    background: var(--mk-light);
+    border-radius: 8px;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   FORDYPNING GRID
+   Oversikt over fagpar som gir fordypning
+   ============================================ */
+
+.fordypning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.fordypning-category {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fordypning-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fordypning-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fordypning-category.realfag h3 {
+    border-color: var(--realfag);
+    color: var(--realfag-dark);
+}
+
+.fordypning-category.ssa h3 {
+    border-color: var(--ssa);
+    color: #7c6f00;
+}
+
+.fordypning-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pair-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.pair-item .fag-1,
+.pair-item .fag-2 {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.fordypning-category.realfag .fag-1,
+.fordypning-category.realfag .fag-2 {
+    background: var(--realfag-light);
+    color: var(--realfag-dark);
+}
+
+.fordypning-category.ssa .fag-1,
+.fordypning-category.ssa .fag-2 {
+    background: var(--ssa-light);
+    color: #7c6f00;
+}
+
+.pair-arrow {
+    color: var(--text-light);
+}
+
+/* ============================================
+   FREMMEDSPRAK SCENARIOS
+   Fremmedsprak krav og situasjoner
+   ============================================ */
+
+.sprak-scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sprak-scenario {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.sprak-scenario.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sprak-condition {
+    flex: 1;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.sprak-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--primary-teal);
+}
+
+.sprak-result {
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.sprak-result.done {
+    background: var(--realfag-light);
+    color: var(--realfag-dark);
+}
+
+.sprak-result.required {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+    color: #e65100;
+}
+
+.sprak-result .checkmark {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   FAGVALG EXAMPLE TABLE
+   Eksempel pa fagvalg med animasjoner
+   ============================================ */
+
+.fagvalg-example {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.fagvalg-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+
+.fagvalg-table th {
+    padding: 15px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.fagvalg-table td {
+    padding: 15px;
+    background: var(--bg-light);
+    border-radius: 4px;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.fagvalg-table tr {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fagvalg-table tr.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fagvalg-table .year-col {
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+}
+
+.fagvalg-table .fordypning-highlight {
+    background: var(--realfag-light);
+    border: 2px solid var(--realfag);
+    position: relative;
+}
+
+.fagvalg-table .fordypning-1 {
+    animation: highlight-pulse-1 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.fagvalg-table .fordypning-2 {
+    animation: highlight-pulse-2 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.fagvalg-table .fordypning-highlight::after {
+    content: "";
+    display: none;
+}
+
+/* Fagvalg legend */
+.fagvalg-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.fagvalg-legend .legend-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.fagvalg-legend .legend-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-color.realfag { background: var(--realfag); }
+.legend-color.ssa { background: var(--ssa); }
+
+/* ============================================
+   FAGVALG EXAMPLE TABLE - SSA VARIANT
+   Eksempel pa fagvalg med gul SSA-farge
+   ============================================ */
+
+/* SSA header med gul accent */
+.slide-header-ssa::after {
+    background: var(--ssa);
+}
+
+/* SSA-tabell fordypnings-highlighting */
+.fagvalg-table-ssa .fordypning-highlight-ssa {
+    background: var(--ssa-light);
+    border: 2px solid var(--ssa);
+    position: relative;
+}
+
+.fagvalg-table-ssa .fordypning-okonomi {
+    animation: highlight-pulse-ssa-1 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.fagvalg-table-ssa .fordypning-samfunn {
+    animation: highlight-pulse-ssa-2 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* Tom celle - gra med stiplet kant */
+.fagvalg-table .empty-cell {
+    background: #f5f5f5;
+    border: 2px dashed #bbb;
+    color: #888;
+    font-style: italic;
+}
+
+/* SSA puls-animasjoner */
+@keyframes highlight-pulse-ssa-1 {
+    0% { box-shadow: 0 0 0 0 rgba(232, 197, 71, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(232, 197, 71, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 197, 71, 0); }
+}
+
+@keyframes highlight-pulse-ssa-2 {
+    0% { box-shadow: 0 0 0 0 rgba(232, 197, 71, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(232, 197, 71, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 197, 71, 0); }
+}
+
+/* ============================================
+   PREMISSER LIST
+   Liste over premisser for fagvalg
+   ============================================ */
+
+.premisser-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.premiss-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: var(--accent-light);
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.premiss-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.premiss-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.premiss-content {
+    flex: 1;
+}
+
+.premiss-content p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ============================================
+   VEIEN VIDERE
+   Deadline og lenker
+   ============================================ */
+
+.veien-videre {
+    width: 100%;
+}
+
+.deadline-box {
+    background: var(--primary-dark);
+    color: white;
+    padding: 30px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+}
+
+.deadline-box.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.deadline-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.deadline-box .deadline-time {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.link-card {
+    background: var(--accent-light);
+    padding: 25px;
+    border-radius: 4px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.link-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.link-card h4 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.link-card a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.link-card a:hover {
+    color: var(--bpg-green);
+}
+
+.important-note {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--accent);
+    border-radius: 4px;
+    border-left: 4px solid var(--primary-dark);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.important-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   CONTACT SLIDE
+   Kontaktinformasjon og ressurser
+   ============================================ */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.contact-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.contact-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-section h3 {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--bpg-green);
+}
+
+.counselors {
+    display: flex;
+    gap: 20px;
+}
+
+.counselor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--accent-light);
+    border-radius: 4px;
+    flex: 1;
+}
+
+.counselor-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bpg-green);
+}
+
+.counselor-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.counselor-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.counselor-title {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.website-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.website-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: var(--accent-light);
+    border-radius: 4px;
+}
+
+.website-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--bpg-green);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.website-item a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.website-item a:hover {
+    color: var(--bpg-green);
+}
+
+/* ============================================
+   SLIDE NOTE
+   Generisk notat-komponent for slides
+   ============================================ */
+
+.slide-note {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background: var(--accent-light);
+    border-left: 4px solid var(--primary-dark);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.slide-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   ANIMATIONS
+   Keyframe animasjoner for slides
+   ============================================ */
+
+@keyframes float-blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -20px) scale(1.05); }
+}
+
+@keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 0.85; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-scale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.15; }
+    50% { transform: scale(1.1); opacity: 0.25; }
+}
+
+@keyframes highlight-pulse-1 {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+@keyframes highlight-pulse-2 {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+/* ============================================
+   ENDING SLIDE
+   Stilig avslutningsside som matcher title-slide
+   ============================================ */
+
+.ending-slide {
+    background: var(--bpg-dark) !important;
+    text-align: center;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0 !important;
+}
+
+.ending-slide.active {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Sikre at ending-content alltid vises */
+.ending-slide .ending-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.ending-slide .ending-content * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Bakgrunns-effekter som matcher title-slide */
+.ending-slide::before {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 50%;
+    height: 80%;
+    background: var(--bpg-peach);
+    border-radius: 100% 0 0 0;
+    opacity: 0.12;
+    animation: float-blob 8s ease-in-out infinite;
+}
+
+.ending-slide::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    width: 45%;
+    height: 70%;
+    background: var(--bpg-green);
+    border-radius: 0 0 100% 0;
+    opacity: 0.08;
+    animation: float-blob 10s ease-in-out infinite reverse;
+}
+
+/* Dekorative sirkler */
+.ending-decoration {
+    position: absolute;
+    border: 2px solid var(--bpg-peach);
+    border-radius: 50%;
+    opacity: 0.15;
+}
+
+.ending-decoration-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: 5%;
+    animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.ending-decoration-2 {
+    width: 150px;
+    height: 150px;
+    bottom: 15%;
+    left: 10%;
+    animation: pulse-ring 5s ease-in-out infinite 1s;
+}
+
+.ending-decoration-3 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 20%;
+    animation: pulse-ring 3s ease-in-out infinite 0.5s;
+}
+
+/* Innholds-container */
+.ending-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+/* Header-seksjon */
+.ending-header {
+    opacity: 1;
+}
+
+.ending-logo {
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+.ending-slide h1 {
+    font-family: var(--font-family-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.ending-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+/* Radgivere - STORE bilder */
+.ending-counselors {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    opacity: 1;
+}
+
+.ending-counselor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.ending-counselor-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bpg-green);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ending-counselor-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.ending-counselor-info {
+    text-align: center;
+}
+
+.ending-counselor-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.ending-counselor-title {
+    font-size: 0.95rem;
+    opacity: 0.75;
+}
+
+/* Fagkatalog-lenke - VIKTIG og fremtredende */
+.ending-catalog-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--bpg-green);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 25px rgba(95, 165, 80, 0.4);
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.ending-catalog-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(95, 165, 80, 0.5);
+    background: #4d9142;
+}
+
+/* Ending actions - deadline + catalog link */
+.ending-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.ending-deadline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.deadline-label {
+    opacity: 0.9;
+}
+
+.deadline-value {
+    font-weight: 700;
+    color: var(--bpg-peach);
+}
+
+.catalog-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.catalog-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.catalog-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.catalog-label {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.catalog-url {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+/* Andre ressurser - underordnet */
+.ending-resources {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 1;
+}
+
+.ending-resource-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.ending-resource-link:hover {
+    color: var(--bpg-peach);
+}
+
+.ending-resource-divider {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+}
+
+/* ============================================
+   CONTACT SLIDE (Slide 14 - NY)
+   Enkel kontaktside med rådgivere
+   ============================================ */
+
+.slide-contact {
+    background: var(--bg-light);
+}
+
+.slide-header-dark {
+    background: var(--bpg-dark) !important;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+    padding: 30px 15%;
+    width: 100%;
+    flex: 1;
+}
+
+.four-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.contact-columns {
+    margin-top: auto;
+}
+
+.link-card-contact {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.link-card-contact:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.link-card-contact h3 {
+    color: var(--primary-dark);
+}
+
+.link-card-contact p {
+    color: var(--text-medium);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.counselors-section {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    width: 100%;
+}
+
+.counselor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 50px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.counselor-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+    border: 5px solid var(--bpg-green);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.counselor-name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+}
+
+.counselor-title {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+.contact-info-box {
+    background: var(--bpg-peach-light);
+    padding: 25px 50px;
+    border-radius: 8px;
+    border-left: 4px solid var(--bpg-teal);
+    width: 100%;
+    text-align: center;
+}
+
+.contact-info-box p {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.contact-link-primary {
+    display: inline-block;
+    background: var(--bpg-green);
+    color: white;
+    padding: 20px 50px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(95, 165, 80, 0.3);
+}
+
+.contact-link-primary:hover {
+    background: #4d9142;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(95, 165, 80, 0.4);
+}
+
+.contact-links-secondary {
+    display: flex;
+    gap: 40px;
+}
+
+.contact-links-secondary a {
+    color: var(--text-medium);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.contact-links-secondary a:hover {
+    color: var(--bpg-teal);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   Tilpasninger for mindre skjermer
+   ============================================ */
+
+@media (max-width: 900px) {
+    .slide-header {
+        padding: 30px 5%;
+    }
+
+    .slide-content {
+        padding: 30px 5%;
+    }
+
+    .title-slide h1 {
+        font-size: 2.5rem;
+    }
+
+    .three-columns,
+    .program-grid,
+    .fag-comparison,
+    .fordypning-grid,
+    .links-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .counselors {
+        flex-direction: column;
+    }
+
+    .fagvalg-table {
+        font-size: 1rem;
+    }
+
+    .fagvalg-table th,
+    .fagvalg-table td {
+        padding: 10px 8px;
+    }
+
+    /* Ending slide responsive */
+    .ending-slide h1 {
+        font-size: 2.5rem;
+    }
+
+    .ending-counselors {
+        gap: 30px;
+    }
+
+    .ending-counselor-photo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .ending-catalog-link {
+        padding: 16px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .slide-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .sprak-scenario {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sprak-arrow {
+        transform: rotate(90deg);
+        justify-content: center;
+    }
+
+    .math-path {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fordypning-visual {
+        justify-content: center;
+    }
+
+    /* Ending slide small screens */
+    .ending-slide h1 {
+        font-size: 2rem;
+    }
+
+    .ending-counselors {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .ending-counselor-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .ending-catalog-link {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .catalog-text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .ending-resources {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ending-resource-divider {
+        display: none;
+    }
+}

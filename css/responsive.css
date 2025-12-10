@@ -1,0 +1,105 @@
+/**
+ * Responsive CSS for Fagvalg 2026-2027 Presentasjon
+ * Bergen Private Gymnas
+ *
+ * Breakpoints:
+ * - Tablet: max-width 900px
+ * - Mobile: max-width 600px
+ */
+
+/* ==========================================================================
+   Tablet Breakpoint (max-width: 900px)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    /* Slide header - redusert padding for tablet */
+    .slide-header {
+        padding: 30px 5%;
+    }
+
+    /* Slide content - redusert padding for tablet */
+    .slide-content {
+        padding: 30px 5%;
+    }
+
+    /* Tittel slide - mindre font for tablet */
+    .title-slide h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Grid layouts - enkeltkolonne for tablet */
+    .three-columns,
+    .program-grid,
+    .fag-comparison,
+    .fordypning-grid,
+    .links-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Counselors - vertikal layout for tablet */
+    .counselors {
+        flex-direction: column;
+    }
+
+    /* Fagvalg tabell - mindre font for tablet */
+    .fagvalg-table {
+        font-size: 1rem;
+    }
+
+    .fagvalg-table th,
+    .fagvalg-table td {
+        padding: 10px 8px;
+    }
+}
+
+/* ==========================================================================
+   Mobile Breakpoint (max-width: 600px)
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    /* Slide header tittel - enda mindre for mobil */
+    .slide-header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Navigasjonspiler - mindre og narmere bunnen for mobil */
+    .nav-arrows {
+        bottom: 15px;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Slide counter - mindre og narmere bunnen for mobil */
+    .slide-counter {
+        bottom: 15px;
+        right: 15px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    /* Sprak scenario - vertikal layout for mobil */
+    .sprak-scenario {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sprak-arrow {
+        transform: rotate(90deg);
+        justify-content: center;
+    }
+
+    /* Matematikk path - wrap for mobil */
+    .math-path {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Fordypning visual - sentrert for mobil */
+    .fordypning-visual {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,1616 @@
+/* ==========================================================================
+   COMPONENTS.CSS
+   Gjenbrukbare UI-komponenter for BPG presentasjoner
+   ========================================================================== */
+
+/* ==========================================================================
+   1. COLUMN CARDS
+   Brukes for informasjonskort i tre-kolonne layout
+   ========================================================================== */
+
+.column-card {
+    background: var(--bg-light);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+}
+
+.column-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.column-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.column-card.visible:hover {
+    transform: translateY(-5px);
+}
+
+.column-card .icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: var(--primary-dark);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column-card .icon svg {
+    width: 36px;
+    height: 36px;
+    color: white;
+}
+
+.column-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+}
+
+.column-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.column-card li {
+    padding: 8px 0;
+    color: var(--text-medium);
+    position: relative;
+    padding-left: 20px;
+}
+
+.column-card li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--bpg-green);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+/* ==========================================================================
+   2. PROGRAM CARDS
+   Kort for ulike studieretninger/programomrader
+   ========================================================================== */
+
+.program-card {
+    border-radius: 16px;
+    padding: 30px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+}
+
+.program-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.program-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+.program-card.visible:hover {
+    transform: scale(1.02);
+}
+
+.program-card.mk {
+    background: linear-gradient(135deg, var(--mk-light), rgba(74, 158, 184, 0.15));
+    border: 2px solid var(--mk);
+}
+
+.program-card.musikk {
+    background: linear-gradient(135deg, var(--musikk-light), rgba(232, 168, 124, 0.2));
+    border: 2px solid var(--musikk);
+}
+
+.program-card.studspes {
+    background: linear-gradient(135deg, var(--realfag-light), var(--ssa-light));
+    border: 2px solid var(--realfag);
+}
+
+.program-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.program-card .color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.program-card.mk .color-dot { background: var(--mk); }
+.program-card.musikk .color-dot { background: var(--musikk); }
+.program-card.studspes .color-dot { background: var(--realfag); }
+
+.program-card .year-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.program-card .year-row:last-child {
+    border-bottom: none;
+}
+
+.program-card .year-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.program-card .year-value {
+    color: var(--text-medium);
+}
+
+
+/* ==========================================================================
+   3. TIMELINE
+   Tidslinje for viktige datoer og milepeler
+   ========================================================================== */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item:hover .timeline-content {
+    border-left-color: var(--bpg-teal);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-content {
+    transition: all 0.2s ease;
+}
+
+.timeline-month {
+    min-width: 120px;
+    background: var(--primary-dark);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-content {
+    flex: 1;
+    background: var(--accent-light);
+    padding: 20px 25px;
+    border-radius: 4px;
+    border-left: 4px solid var(--bpg-green);
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.timeline-content p {
+    color: var(--text-medium);
+    line-height: 1.5;
+}
+
+.timeline-content .deadline {
+    display: inline-block;
+    background: #ffebee;
+    color: #c62828;
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+/* ==========================================================================
+   4. MATH PATHS
+   Visualisering av matematikklopene (1P/1T -> 2P/S1/R1 etc.)
+   ========================================================================== */
+
+.math-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+    margin-bottom: 25px;
+}
+
+.math-path:last-child {
+    margin-bottom: 0;
+}
+
+.math-path.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.math-box {
+    padding: 22px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    min-width: 160px;
+    transition: all 0.2s ease;
+}
+
+.math-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 128, 128, 0.3);
+}
+
+.math-box.vg1 {
+    background: var(--bg-light);
+    border: 3px solid var(--text-light);
+}
+
+.math-box.vg2 {
+    background: var(--ssa-light);
+    border: 3px solid var(--ssa-dark);
+}
+
+.math-box.vg3 {
+    background: var(--realfag-light);
+    border: 3px solid var(--realfag);
+}
+
+.math-arrow {
+    font-size: 2.2rem;
+    color: var(--primary-teal);
+}
+
+.math-end {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-medium);
+}
+
+
+/* ==========================================================================
+   5. FORDYPNING
+   Komponenter for a forklare fordypningskrav
+   ========================================================================== */
+
+/* Definisjonsboks */
+.fordypning-definition {
+    background: var(--primary-dark);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* Steg i forklaringen */
+.fordypning-step {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fordypning-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Kategori (Realfag / SSA) */
+.fordypning-category {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fordypning-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fordypning-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fordypning-category.realfag h3 {
+    border-color: var(--realfag);
+    color: var(--realfag-dark);
+}
+
+.fordypning-category.ssa h3 {
+    border-color: var(--ssa);
+    color: #7c6f00;
+}
+
+/* Fagpar som gir fordypning */
+.fordypning-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pair-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.pair-item:hover {
+    background: var(--accent-light);
+    transform: scale(1.02);
+}
+
+.pair-item .fag-1,
+.pair-item .fag-2,
+.pair-item .fag-3 {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.fordypning-category.realfag .fag-1,
+.fordypning-category.realfag .fag-2,
+.fordypning-category.realfag .fag-3 {
+    background: var(--realfag-light);
+    color: var(--realfag-dark);
+}
+
+.fordypning-category.ssa .fag-1,
+.fordypning-category.ssa .fag-2,
+.fordypning-category.ssa .fag-3 {
+    background: var(--ssa-light);
+    color: #7c6f00;
+}
+
+.pair-arrow {
+    color: var(--text-light);
+}
+
+/* Triple pair item - for fag som gir hverandre fordypning */
+.pair-item-triple {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
+/* ==========================================================================
+   6. SPRAK SCENARIOS
+   Fremmedsprak-scenarioer med betingelser og resultater
+   ========================================================================== */
+
+.sprak-scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.sprak-scenario {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.sprak-scenario.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sprak-condition {
+    flex: 1;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.sprak-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--primary-teal);
+}
+
+.sprak-result {
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.sprak-result.done {
+    background: var(--realfag-light);
+    color: var(--realfag-dark);
+}
+
+.sprak-result.required {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+    color: #e65100;
+}
+
+.sprak-result .checkmark {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+
+/* ==========================================================================
+   7. FAGVALG TABLE
+   Tabell for eksempler pa fagvalg
+   ========================================================================== */
+
+.fagvalg-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+
+.fagvalg-table th {
+    padding: 15px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.fagvalg-table td {
+    padding: 15px;
+    background: var(--bg-light);
+    border-radius: 4px;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.fagvalg-table tr {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fagvalg-table tr.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fagvalg-table .year-col {
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+}
+
+.fagvalg-table .fordypning-highlight {
+    background: var(--realfag-light);
+    border: 2px solid var(--realfag);
+    position: relative;
+}
+
+.fagvalg-table .fordypning-1 {
+    animation: highlight-pulse-1 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.fagvalg-table .fordypning-2 {
+    animation: highlight-pulse-2 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes highlight-pulse-1 {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+@keyframes highlight-pulse-2 {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+.fagvalg-table .fordypning-highlight::after {
+    content: "";
+    display: none;
+}
+
+/* Fagvalg legend */
+.fagvalg-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.fagvalg-legend .legend-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s ease;
+}
+
+.fagvalg-legend .legend-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-color.realfag { background: var(--realfag); }
+.legend-color.ssa { background: var(--ssa); }
+
+
+/* ==========================================================================
+   8. PREMISSER
+   Liste over forutsetninger/premisser for fagvalg
+   ========================================================================== */
+
+.premisser-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.premiss-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: var(--accent-light);
+    border-radius: 4px;
+    border-left: 4px solid transparent;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all var(--transition-medium);
+}
+
+.premiss-item:hover {
+    border-left-color: var(--bpg-green);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.premiss-item.visible:hover {
+    transform: translateY(-3px);
+}
+
+.premiss-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.premiss-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.premiss-content {
+    flex: 1;
+}
+
+.premiss-content p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   9. DEADLINE BOX
+   Fremhevet boks for frister
+   ========================================================================== */
+
+.deadline-box {
+    background: var(--primary-dark);
+    color: white;
+    padding: 30px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+}
+
+.deadline-box.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.deadline-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.deadline-box .deadline-time {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+   10. LINK CARDS
+   Kort med lenker til ressurser
+   ========================================================================== */
+
+.link-card {
+    background: var(--accent-light);
+    padding: 25px;
+    border-radius: 4px;
+    text-align: center;
+    border: 2px solid transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--bpg-teal);
+}
+
+.link-card.visible:hover {
+    transform: translateY(-3px);
+}
+
+.link-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.link-card h4 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.link-card a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.link-card a:hover {
+    color: var(--bpg-green);
+}
+
+
+/* ==========================================================================
+   11. CONTACT SECTION
+   Kontaktinformasjon med radgivere
+   ========================================================================== */
+
+.contact-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.contact-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-section h3 {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--bpg-green);
+}
+
+/* Radgivere */
+.counselors {
+    display: flex;
+    gap: 20px;
+}
+
+.counselor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--accent-light);
+    border-radius: 4px;
+    flex: 1;
+}
+
+.counselor-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bpg-green);
+}
+
+.counselor-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.counselor-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.counselor-title {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+
+/* ==========================================================================
+   12. WEBSITE LIST
+   Liste over nyttige nettsider
+   ========================================================================== */
+
+.website-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.website-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: var(--accent-light);
+    border-radius: 4px;
+}
+
+.website-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--bpg-green);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.website-item a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.website-item a:hover {
+    color: var(--bpg-green);
+}
+
+
+/* ==========================================================================
+   13. IMPORTANT NOTE
+   Viktig informasjon/advarsel
+   ========================================================================== */
+
+.important-note {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--accent);
+    border-radius: 4px;
+    border-left: 4px solid var(--primary-dark);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.important-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   14. SLIDE NOTE
+   Tilleggsnotat/fotnoter pa slides
+   ========================================================================== */
+
+.slide-note {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background: var(--accent-light);
+    border-left: 4px solid var(--primary-dark);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.slide-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   15. FAG COMPARISON V2
+   Forbedret visuell distinksjon mellom fellesfag og programfag
+   ========================================================================== */
+
+.fag-comparison-v2 {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.fag-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.fag-column.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fellesfag-kolonnen - noytral/gra tone */
+.fellesfag-column {
+    background: var(--bg-light);
+    border: 3px solid #9e9e9e;
+}
+
+/* Programfag-kolonnen - BPG-gronn tone */
+.programfag-column {
+    background: var(--realfag-light);
+    border: 3px solid var(--bpg-green);
+}
+
+/* Header med ikon og tittel */
+.fag-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+}
+
+.fag-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.fellesfag-header {
+    border-color: #9e9e9e;
+    color: #616161;
+}
+
+.fellesfag-header svg {
+    color: #616161;
+}
+
+.programfag-header {
+    border-color: var(--bpg-green);
+    color: var(--realfag-dark);
+}
+
+.programfag-header svg {
+    color: var(--bpg-green);
+}
+
+/* Beskrivelse */
+.fag-description {
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+/* Fag-eksempler container */
+.fag-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+}
+
+/* Fag-eksempel blokker */
+.fag-example-block {
+    padding: 18px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all var(--transition-medium);
+}
+
+.fag-example-block.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fellesfag blokker - noytral stil */
+.fag-example-block.fellesfag-block {
+    background: #e0e0e0;
+    color: #424242;
+    border: 2px solid #bdbdbd;
+}
+
+/* Programfag blokker - gronn stil */
+.fag-example-block.programfag-block {
+    background: var(--bpg-green);
+    color: white;
+    border: 2px solid var(--realfag-dark);
+}
+
+/* Visuell divider mellom kolonnene */
+.fag-divider {
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, var(--primary-dark) 20%, var(--primary-dark) 80%, transparent);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   Tilpasninger for mindre skjermer
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .counselors {
+        flex-direction: column;
+    }
+
+    .fagvalg-table {
+        font-size: 1rem;
+    }
+
+    .fagvalg-table th,
+    .fagvalg-table td {
+        padding: 10px 8px;
+    }
+
+    /* Fag comparison v2 responsive */
+    .fag-comparison-v2 {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .fag-divider {
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--primary-dark) 20%, var(--primary-dark) 80%, transparent);
+    }
+
+    .fag-column {
+        padding: 25px;
+    }
+
+    .fag-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .fag-example-block {
+        padding: 15px 20px;
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .sprak-scenario {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sprak-arrow {
+        transform: rotate(90deg);
+        justify-content: center;
+    }
+
+    .math-path {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fag-column {
+        padding: 20px;
+    }
+
+    .fag-example-block {
+        padding: 12px 16px;
+        font-size: 1rem;
+    }
+}
+
+
+/* ==========================================================================
+   15. INTERAKTIV FAGVALG-TABELL (Slide 10)
+   Klikkbar tabell for å demonstrere fordypning
+   ========================================================================== */
+
+.fagvalg-interactive {
+    position: relative;
+    width: 100%;
+}
+
+/* Tabell - hoeyere for å fylle skjermen bedre */
+.fagvalg-table-interactive {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-bottom: 20px;
+}
+
+/* Kolonnebredder: Første kolonne smalere, resten like brede */
+.fagvalg-table-interactive th:first-child,
+.fagvalg-table-interactive td:first-child {
+    width: 70px;
+}
+
+.fagvalg-table-interactive th:not(:first-child),
+.fagvalg-table-interactive td:not(:first-child) {
+    width: calc((100% - 70px) / 4);
+}
+
+.fagvalg-table-interactive th {
+    padding: 20px 15px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.fagvalg-table-interactive td {
+    padding: 25px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.fagvalg-table-interactive .year-col {
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+    /* width styres av th:first-child/td:first-child selector */
+}
+
+/* Fag-celler - noytral start */
+.fag-cell {
+    background: #e0e0e0;
+    color: var(--text-dark);
+    border: 3px solid #bdbdbd;
+}
+
+/* Noytrale fag (ikke klikkbare) */
+.fag-cell.neutral {
+    background: var(--bg-light);
+    border: 3px solid #e0e0e0;
+    color: var(--text-medium);
+}
+
+/* Tom celle */
+.fag-cell.empty-cell {
+    background: transparent;
+    border: 3px dashed #bdbdbd;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Klikkbare celler - viser at de kan klikkes */
+.fag-cell.clickable {
+    cursor: pointer;
+    background: #f5f5f5;
+    border: 3px solid #9e9e9e;
+    position: relative;
+}
+
+.fag-cell.clickable:hover {
+    background: #e8e8e8;
+    border-color: var(--primary-teal);
+    transform: scale(1.02);
+}
+
+/* Aktivert/valgt tilstand - groenn */
+.fag-cell.clickable.selected {
+    background: var(--realfag-light);
+    border-color: var(--realfag);
+    color: var(--realfag-dark);
+    box-shadow: 0 0 0 3px rgba(95, 165, 80, 0.3);
+}
+
+/* Pulserende effekt ved aktivering */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(95, 165, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(95, 165, 80, 0); }
+}
+
+.fag-cell.clickable.just-selected {
+    animation: pulse-green 0.6s ease-out;
+}
+
+/* ===== SSA INTERAKTIV STYLING ===== */
+
+/* SSA klikkbare celler - hover */
+.fag-cell.ssa-clickable:hover {
+    border-color: var(--ssa);
+}
+
+/* SSA aktivert/valgt tilstand - gul */
+.fag-cell.ssa-clickable.selected {
+    background: var(--ssa-light);
+    border-color: var(--ssa);
+    color: var(--ssa-dark);
+    box-shadow: 0 0 0 3px rgba(232, 197, 71, 0.3);
+}
+
+/* Pulserende effekt ved aktivering - gul */
+@keyframes pulse-yellow {
+    0% { box-shadow: 0 0 0 0 rgba(232, 197, 71, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(232, 197, 71, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 197, 71, 0); }
+}
+
+.fag-cell.ssa-clickable.just-selected {
+    animation: pulse-yellow 0.6s ease-out;
+}
+
+/* SSA fordypning resultat-bokser */
+.fordypning-result-ssa {
+    background: var(--ssa-light);
+    border-color: var(--ssa);
+    color: var(--ssa-dark);
+}
+
+/* SVG for piler */
+.fordypning-arrows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.arrow-line {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.arrow-line.visible {
+    opacity: 1;
+}
+
+/* Fordypning resultat-bokser */
+.fordypning-results {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Fordypning resultat-rad - matcher tabell-kolonner */
+.fordypning-results-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.fordypning-results-row > * {
+    flex: 1;
+    min-width: 0;
+}
+
+.fordypning-results-row > *:first-child {
+    flex: 0 0 70px;
+    max-width: 70px;
+}
+
+.fordypning-result-placeholder {
+    /* Tom placeholder for å holde grid-strukturen */
+}
+
+.fordypning-result {
+    padding: 12px 15px;
+    background: var(--realfag);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(95, 165, 80, 0.4);
+    text-align: center;
+}
+
+.fordypning-result.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Instruksjon */
+.click-instruction {
+    text-align: center;
+    margin-top: 25px;
+    padding: 12px 20px;
+    background: var(--accent-light);
+    border-radius: 8px;
+    color: var(--text-medium);
+    font-size: 1rem;
+    border-left: 4px solid var(--primary-teal);
+}
+
+/* ==========================================================================
+   16. BLOKKSKJEMA
+   ========================================================================== */
+
+.blokkskjema-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.blokkskjema-columns {
+    margin-bottom: 20px;
+}
+
+.blokkskjema-columns .column-card {
+    text-align: center;
+}
+
+.blokkskjema-columns .column-card p {
+    color: var(--text-medium);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.blokkskjema-columns .icon-warning {
+    background: var(--ssa);
+}
+
+.blokkskjema-image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.blokkskjema-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blokkskjema-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.image-hint {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Image Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.image-modal-content {
+    position: relative;
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.image-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    line-height: 1;
+}
+
+.image-modal-close:hover {
+    transform: scale(1.2);
+}
+
+/* Responsive for interaktiv tabell */
+@media (max-width: 768px) {
+    .fagvalg-table-interactive {
+        border-spacing: 6px;
+    }
+
+    .fagvalg-table-interactive th,
+    .fagvalg-table-interactive td {
+        padding: 15px 10px;
+        font-size: 0.95rem;
+    }
+
+    .fordypning-result {
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+}
+
+
+/* ==========================================================================
+   16. INFO-MODAL / SPEECH BUBBLE
+   Snakkeboble for tilleggsinformasjon pa fag-celler
+   ========================================================================== */
+
+/* Celle med info-ikon */
+.fag-cell.has-info {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Info-ikon (sirkel med "i") */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: var(--ssa);
+    color: var(--ssa-dark);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Georgia, serif;
+    margin-left: 6px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon:hover {
+    background: var(--ssa-dark);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Snakkeboble / Speech bubble */
+.speech-bubble {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    width: 280px;
+    padding: 16px 20px;
+    background: white;
+    border: 2px solid var(--ssa);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+/* Pil som peker ned mot cellen */
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid var(--ssa);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+}
+
+/* Synlig tilstand */
+.speech-bubble.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+    pointer-events: auto;
+}
+
+/* Tekst i boblen */
+.speech-bubble p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+    text-align: left;
+}
+
+/* Lukkeknapp */
+.speech-bubble-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.speech-bubble-close:hover {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Responsive for speech bubble */
+@media (max-width: 768px) {
+    .speech-bubble {
+        width: 220px;
+        padding: 14px 16px;
+        bottom: calc(100% + 12px);
+    }
+
+    .speech-bubble p {
+        font-size: 0.85rem;
+    }
+
+    .info-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+}

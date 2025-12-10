@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fagvalg 2026-2027 | Bergen Private Gymnas</title>
+
+    <!-- Adobe Fonts - Jubilat -->
+    <link rel="stylesheet" href="https://use.typekit.net/ykp4ufn.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/slides.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="slide-counter-wrapper">
+        <div class="slide-counter" role="status" aria-live="polite" aria-atomic="true">
+            Slide <span id="currentSlide">1</span> av <span id="totalSlides">14</span>
+        </div>
+        <nav class="slide-menu" aria-label="Slide navigasjon meny">
+            <ul class="slide-menu-list">
+                <li><button class="slide-menu-item" data-goto="1"><span class="slide-menu-num">1</span> Fagvalg 2026-2027</button></li>
+                <li><button class="slide-menu-item" data-goto="2"><span class="slide-menu-num">2</span> Tidslinje</button></li>
+                <li><button class="slide-menu-item" data-goto="3"><span class="slide-menu-num">3</span> Hva skal ligge til grunn?</button></li>
+                <li><button class="slide-menu-item" data-goto="4"><span class="slide-menu-num">4</span> Programområder</button></li>
+                <li><button class="slide-menu-item" data-goto="5"><span class="slide-menu-num">5</span> Fellesfag vs Programfag</button></li>
+                <li><button class="slide-menu-item" data-goto="6"><span class="slide-menu-num">6</span> Matematikk</button></li>
+                <li><button class="slide-menu-item" data-goto="7"><span class="slide-menu-num">7</span> Fordypning i fag</button></li>
+                <li><button class="slide-menu-item" data-goto="8"><span class="slide-menu-num">8</span> Hvilke fag gir fordypning?</button></li>
+                <li><button class="slide-menu-item" data-goto="9"><span class="slide-menu-num">9</span> Fremmedspråk</button></li>
+                <li><button class="slide-menu-item" data-goto="10"><span class="slide-menu-num">10</span> Eksempel på fagvalg</button></li>
+                <li><button class="slide-menu-item" data-goto="11"><span class="slide-menu-num">11</span> Eksempel på fagvalg (SSA)</button></li>
+                <li><button class="slide-menu-item" data-goto="12"><span class="slide-menu-num">12</span> Premisser for fagvalg</button></li>
+                <li><button class="slide-menu-item" data-goto="13"><span class="slide-menu-num">13</span> Blokkskjema</button></li>
+                <li><button class="slide-menu-item" data-goto="14"><span class="slide-menu-num">14</span> Kontakt oss</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="keyboard-hint" id="keyboardHint">
+        Bruk <kbd>&#8592;</kbd> <kbd>&#8594;</kbd> piltaster for navigering
+    </div>
+
+    <!-- Click-reveal indicator -->
+    <div class="click-reveal-indicator" id="clickRevealIndicator">
+        <div class="indicator-arrow">
+            <svg viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+        <span class="indicator-text">Klikk for mer</span>
+    </div>
+
+    <nav class="nav-arrows" aria-label="Slide navigasjon">
+        <button class="nav-arrow" id="prevBtn" aria-label="Forrige slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <button class="nav-arrow" id="fullscreenBtn" aria-label="Fullskjerm" title="Fullskjerm (F)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="fullscreenIcon">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="exitFullscreenIcon" style="display:none;">
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+            </svg>
+        </button>
+        <button class="nav-arrow" id="nextBtn" aria-label="Neste slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="slides-container">
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide active" data-slide="1">
+            <div class="title-decoration title-decoration-1" data-parallax="slow"></div>
+            <div class="title-decoration title-decoration-2" data-parallax="medium"></div>
+            <div class="title-decoration title-decoration-3" data-parallax="fast"></div>
+            <div class="particles" data-parallax="slow">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+                <div class="particle particle-6"></div>
+                <div class="particle particle-7"></div>
+            </div>
+            <div class="logo">Bergen Private Gymnas</div>
+            <h1>Fagvalg 2026-2027</h1>
+            <p class="subtitle">For elever på BPG som skal velge programfag</p>
+            <div class="year-badge">Skoleår 2026-2027</div>
+        </div>
+
+        <!-- Slide 2: Timeline -->
+        <div class="slide" data-slide="2" data-click-reveal="true">
+            <div class="slide-header">
+                <h1>Tidslinje</h1>
+                <p>Viktige datoer for fagvalget</p>
+            </div>
+            <div class="slide-content">
+                <div class="timeline">
+                    <div class="timeline-item" data-delay="0">
+                        <div class="timeline-month">Desember</div>
+                        <div class="timeline-content">
+                            <h3>Felles informasjon + Prøvefagvalg</h3>
+                            <p>Denne presentasjonen og mulighet til å teste ut ulike fagkombinasjoner</p>
+                            <span class="deadline">Frist: Torsdag 18. desember kl 15:00</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-delay="1">
+                        <div class="timeline-month">Januar</div>
+                        <div class="timeline-content">
+                            <h3>Individuell rådgivning</h3>
+                            <p>Mulighet for personlig veiledning med rådgiver om dine valg</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-delay="2">
+                        <div class="timeline-month">Februar</div>
+                        <div class="timeline-content">
+                            <h3>Endelig fagvalg</h3>
+                            <p>Frist for å levere ditt endelige fagvalg i InSchool</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Hva skal ligge til grunn -->
+        <div class="slide" data-slide="3" data-click-reveal="true">
+            <div class="slide-header">
+                <h1>Hva skal ligge til grunn for valget ditt?</h1>
+                <p>Tre viktige faktorer for ditt valg</p>
+            </div>
+            <div class="slide-content">
+                <div class="three-columns">
+                    <div class="column-card" data-delay="0">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <h3>Personlige egenskaper</h3>
+                        <ul>
+                            <li>Hvem er du?</li>
+                            <li>Hva liker du?</li>
+                            <li>Hva er du god til?</li>
+                        </ul>
+                    </div>
+                    <div class="column-card" data-delay="1">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <h3>Studier og karriere</h3>
+                        <ul>
+                            <li>Hva vil du studere?</li>
+                            <li>Spesielle opptakskrav?</li>
+                            <li>Fremtidige muligheter</li>
+                        </ul>
+                    </div>
+                    <div class="column-card" data-delay="2">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>Krav for vitnemål</h3>
+                        <ul>
+                            <li>Fagene må gi gyldig vitnemål</li>
+                            <li>Fordypningskrav</li>
+                            <li>Obligatoriske fag</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Programområder og antall fag -->
+        <div class="slide" data-slide="4">
+            <div class="slide-header">
+                <h1>Programområder og antall fag</h1>
+                <p>Oversikt over de ulike studieretningene</p>
+            </div>
+            <div class="slide-content">
+                <div class="program-grid">
+                    <div class="program-card mk" data-delay="0">
+                        <h3><span class="color-dot"></span>Medier og kommunikasjon <small style="font-weight: normal; font-size: 0.7em; opacity: 0.8;">(MK)</small></h3>
+                        <div class="year-row">
+                            <span class="year-label">VG2</span>
+                            <span class="year-value">1 programfag + Matematikk</span>
+                        </div>
+                        <div class="year-row">
+                            <span class="year-label">VG3</span>
+                            <span class="year-value">2 programfag</span>
+                        </div>
+                    </div>
+                    <div class="program-card musikk" data-delay="1">
+                        <h3><span class="color-dot"></span>Musikk</h3>
+                        <div class="year-row">
+                            <span class="year-label">VG2</span>
+                            <span class="year-value">1 programfag + Matematikk</span>
+                        </div>
+                        <div class="year-row">
+                            <span class="year-label">VG3</span>
+                            <span class="year-value">1 programfag</span>
+                        </div>
+                    </div>
+                    <div class="program-card studspes" data-delay="2">
+                        <h3><span class="color-dot"></span>Studiespesialisering <small style="font-weight: normal; font-size: 0.7em; opacity: 0.8;">(REA/SSA)</small></h3>
+                        <div class="year-row">
+                            <span class="year-label">VG2</span>
+                            <span class="year-value">3 programfag + Matematikk</span>
+                        </div>
+                        <div class="year-row">
+                            <span class="year-label">VG3</span>
+                            <span class="year-value">3 programfag</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Fellesfag eller Programfag -->
+        <div class="slide" data-slide="5">
+            <div class="slide-header">
+                <h1>Fellesfag eller Programfag?</h1>
+                <p>Forstå forskjellen</p>
+            </div>
+            <div class="slide-content">
+                <div class="fag-comparison-v2">
+                    <div class="fag-column fellesfag-column" data-delay="0">
+                        <div class="fag-header fellesfag-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                            </svg>
+                            <h3>Fellesfag</h3>
+                        </div>
+                        <p class="fag-description">Bestemt av programområdet ditt - kan ikke velges vekk. Alle må ha disse fagene.</p>
+                        <div class="fag-examples">
+                            <div class="fag-example-block fellesfag-block" data-delay="1">Norsk</div>
+                            <div class="fag-example-block fellesfag-block" data-delay="2">Engelsk</div>
+                            <div class="fag-example-block fellesfag-block" data-delay="3">Kroppsøving</div>
+                        </div>
+                    </div>
+                    <div class="fag-divider"></div>
+                    <div class="fag-column programfag-column" data-delay="0">
+                        <div class="fag-header programfag-header">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                            <h3>Programfag</h3>
+                        </div>
+                        <p class="fag-description">Fag du velger selv som gir fordypning innenfor områder du er interessert i.</p>
+                        <div class="fag-examples">
+                            <div class="fag-example-block programfag-block" data-delay="4">Fysikk</div>
+                            <div class="fag-example-block programfag-block" data-delay="5">Biologi</div>
+                            <div class="fag-example-block programfag-block" data-delay="6">Kjemi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Matematikk -->
+        <div class="slide" data-slide="6">
+            <div class="slide-header">
+                <h1>Matematikk</h1>
+                <p>Velg riktig matematikkløpet for deg</p>
+            </div>
+            <div class="slide-content">
+                <div class="math-flowchart">
+                    <div class="math-path" data-delay="0">
+                        <div class="math-box vg1">Matematikk 1P</div>
+                        <span class="math-arrow">&#8594;</span>
+                        <div class="math-box vg2">Matematikk 2P</div>
+                        <span class="math-arrow">&#8594;</span>
+                        <span class="math-end">Ingen VG3-matematikk</span>
+                    </div>
+                    <div class="math-path" data-delay="1">
+                        <div class="math-box vg1">Matematikk 1T</div>
+                        <span class="math-arrow">&#8594;</span>
+                        <div class="math-box vg2">Matematikk S1</div>
+                        <span class="math-arrow">&#8594;</span>
+                        <div class="math-box vg3">Matematikk S2</div>
+                    </div>
+                    <div class="math-path" data-delay="2">
+                        <div class="math-box vg1">Matematikk 1T</div>
+                        <span class="math-arrow">&#8594;</span>
+                        <div class="math-box vg2">Matematikk R1</div>
+                        <span class="math-arrow">&#8594;</span>
+                        <div class="math-box vg3">Matematikk R2</div>
+                    </div>
+                </div>
+                <div class="math-note">
+                    <strong>Merk:</strong> Vi avventer beslutning fra UDIR angående Statistikk og Matematikk for økonomifag.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Fordypning i fag -->
+        <div class="slide" data-slide="7">
+            <div class="slide-header">
+                <h1>Fordypning i fag</h1>
+                <p>Hvordan oppnår du fordypning?</p>
+            </div>
+            <div class="slide-content">
+                <div class="fordypning-demo">
+                    <div class="fordypning-step" data-delay="0">
+                        <div class="fordypning-definition">
+                            Fordypning = fullføre to fag fra samme fagområde
+                        </div>
+                    </div>
+
+                    <div class="fordypning-step" data-delay="1">
+                        <div class="fordypning-example">
+                            <h4>Eksempel 1: Realfag</h4>
+                            <div class="fordypning-visual">
+                                <span class="fag-pill realfag">Fysikk 1</span>
+                                <span class="plus-sign">+</span>
+                                <span class="fag-pill realfag">Fysikk 2</span>
+                                <span class="equals-sign">=</span>
+                                <span class="result-pill">1 fordypning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fordypning-step" data-delay="2">
+                        <div class="fordypning-example">
+                            <h4>Eksempel 2: Språk, samfunnsfag og økonomi</h4>
+                            <div class="fordypning-visual">
+                                <span class="fag-pill ssa">Sosiologi</span>
+                                <span class="plus-sign">+</span>
+                                <span class="fag-pill ssa">Politikk og menneskerettigheter</span>
+                                <span class="equals-sign">=</span>
+                                <span class="result-pill">1 fordypning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fordypning-step" data-delay="3">
+                        <div class="fordypning-requirement">
+                            <strong>Studiespesialisering krever minimum 2 fordypninger</strong>
+                        </div>
+                        <div class="fordypning-note">
+                            MK og Musikk får automatisk fordypning gjennom sine obligatoriske programfag.
+                        </div>
+                        <div class="fordypning-note udir-note">
+                            <strong>Merk:</strong> Vi avventer beslutning fra UDIR på hvorvidt man kan kombinere fordypning i realfag og språk, samfunnsfag og økonomi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Hvilke fag gir fordypning -->
+        <div class="slide" data-slide="8">
+            <div class="slide-header">
+                <h1>Hvilke fag gir fordypning?</h1>
+                <p>Oversikt over fagpar som gir fordypning</p>
+            </div>
+            <div class="slide-content">
+                <div class="fordypning-grid">
+                    <div class="fordypning-category realfag" data-delay="0">
+                        <h3>
+                            <span class="legend-color realfag"></span>
+                            Realfag
+                        </h3>
+                        <div class="fordypning-pairs">
+                            <div class="pair-item"><span class="fag-1">Fysikk 1</span><span class="pair-arrow">+</span><span class="fag-2">Fysikk 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Biologi 1</span><span class="pair-arrow">+</span><span class="fag-2">Biologi 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Kjemi 1</span><span class="pair-arrow">+</span><span class="fag-2">Kjemi 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Geofag 1</span><span class="pair-arrow">+</span><span class="fag-2">Geofag 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Matematikk S1</span><span class="pair-arrow">+</span><span class="fag-2">Matematikk S2</span></div>
+                            <div class="pair-item"><span class="fag-1">Matematikk R1</span><span class="pair-arrow">+</span><span class="fag-2">Matematikk R2</span></div>
+                        </div>
+                    </div>
+                    <div class="fordypning-category ssa" data-delay="1">
+                        <h3>
+                            <span class="legend-color ssa"></span>
+                            Språk, samfunnsfag og økonomi
+                        </h3>
+                        <div class="fordypning-pairs">
+                            <div class="pair-item"><span class="fag-1">Psykologi 1</span><span class="pair-arrow">+</span><span class="fag-2">Psykologi 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Rettslære 1</span><span class="pair-arrow">+</span><span class="fag-2">Rettslære 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Engelsk 1</span><span class="pair-arrow">+</span><span class="fag-2">Engelsk 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Historie og filosofi 1</span><span class="pair-arrow">+</span><span class="fag-2">Historie og filosofi 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Samfunnsøkonomi 1</span><span class="pair-arrow">+</span><span class="fag-2">Samfunnsøkonomi 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Entrepr. og bedriftsutv. 1</span><span class="pair-arrow">+</span><span class="fag-2">Entrepr. og bedriftsutv. 2</span></div>
+                            <div class="pair-item"><span class="fag-1">Markedsføring og ledelse 1</span><span class="pair-arrow">+</span><span class="fag-2">Markedsføring og ledelse 2</span></div>
+                            <div class="pair-item pair-item-triple"><span class="fag-1">Sosiologi og sosialant.</span><span class="pair-arrow">+</span><span class="fag-2">Sosialkunnskap</span><span class="pair-arrow">+</span><span class="fag-3">Politikk og mennesker.</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-note" data-delay="2">
+                    <em>Skolens fagtilbud varierer fra år til år. Denne oversikten viser eksempler på hvordan fordypning fungerer.</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Fremmedspråk -->
+        <div class="slide" data-slide="9">
+            <div class="slide-header">
+                <h1>Fremmedspråk</h1>
+                <p>Hva gjelder for deg?</p>
+            </div>
+            <div class="slide-content">
+                <div class="sprak-scenarios">
+                    <div class="sprak-scenario" data-delay="0">
+                        <div class="sprak-condition">
+                            <span>Hadde fremmedspråk på ungdomsskolen <strong>+</strong> fortsatte på VGS</span>
+                        </div>
+                        <div class="sprak-arrow">&#8594;</div>
+                        <div class="sprak-result done">
+                            <span class="checkmark">&#10003;</span> Ferdig etter VG2
+                        </div>
+                    </div>
+                    <div class="sprak-scenario" data-delay="1">
+                        <div class="sprak-condition">
+                            <span>Hadde fremmedspråk <strong>+</strong> byttet til nytt språk på VGS</span>
+                        </div>
+                        <div class="sprak-arrow">&#8594;</div>
+                        <div class="sprak-result done">
+                            <span class="checkmark">&#10003;</span> Ferdig etter VG2
+                        </div>
+                    </div>
+                    <div class="sprak-scenario" data-delay="2">
+                        <div class="sprak-condition">
+                            <span>Hadde <strong>IKKE</strong> fremmedspråk på ungdomsskolen</span>
+                        </div>
+                        <div class="sprak-arrow">&#8594;</div>
+                        <div class="sprak-result required">
+                            <span class="checkmark">!</span> MÅ velge Spansk I+II som programfag i VG3
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Eksempel fagvalg - Interaktiv -->
+        <div class="slide" data-slide="10" data-interactive="true">
+            <div class="slide-header">
+                <h1>Eksempel på fagvalg</h1>
+                <p>Klikk på fagene for å se hvordan fordypning fungerer</p>
+            </div>
+            <div class="slide-content">
+                <div class="fagvalg-interactive">
+                    <table class="fagvalg-table-interactive">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Matematikk</th>
+                                <th>Programfag 1</th>
+                                <th>Programfag 2</th>
+                                <th>Programfag 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="year-col">VG2</td>
+                                <td class="fag-cell clickable" data-fag="r1" data-fordypning="matte">R1</td>
+                                <td class="fag-cell clickable" data-fag="fysikk1" data-fordypning="fysikk">Fysikk 1</td>
+                                <td class="fag-cell neutral">Biologi 1</td>
+                                <td class="fag-cell neutral">Psykologi 1</td>
+                            </tr>
+                            <tr>
+                                <td class="year-col">VG3</td>
+                                <td class="fag-cell clickable" data-fag="r2" data-fordypning="matte" data-requires="r1">R2</td>
+                                <td class="fag-cell clickable" data-fag="fysikk2" data-fordypning="fysikk" data-requires="fysikk1">Fysikk 2</td>
+                                <td class="fag-cell neutral">Kjemi 1</td>
+                                <td class="fag-cell empty-cell">Tom</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- SVG for piler mellom fag -->
+                    <svg class="fordypning-arrows" aria-hidden="true">
+                        <defs>
+                            <marker id="arrowhead-fysikk" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="var(--realfag)" />
+                            </marker>
+                            <marker id="arrowhead-matte" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="var(--realfag)" />
+                            </marker>
+                        </defs>
+                        <!-- Fysikk pil -->
+                        <line class="arrow-line fysikk-arrow" x1="0" y1="0" x2="0" y2="0" stroke="var(--realfag)" stroke-width="3" marker-end="url(#arrowhead-fysikk)" />
+                        <!-- Matte pil -->
+                        <line class="arrow-line matte-arrow" x1="0" y1="0" x2="0" y2="0" stroke="var(--realfag)" stroke-width="3" marker-end="url(#arrowhead-matte)" />
+                    </svg>
+
+                    <!-- Fordypning resultat-bokser - plassert under tilhørende kolonner -->
+                    <div class="fordypning-results-row">
+                        <div class="fordypning-result-placeholder"></div>
+                        <div class="fordypning-result matte-result" data-fordypning="matte">
+                            Fordypning i Matematikk
+                        </div>
+                        <div class="fordypning-result fysikk-result" data-fordypning="fysikk">
+                            Fordypning i Fysikk
+                        </div>
+                        <div class="fordypning-result-placeholder"></div>
+                        <div class="fordypning-result-placeholder"></div>
+                    </div>
+
+                    <!-- Instruksjon -->
+                    <div class="click-instruction">
+                        Klikk på de klikkbare boksene for å velge fag
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Eksempel fagvalg SSA - Interaktiv -->
+        <div class="slide" data-slide="11" data-interactive-ssa="true">
+            <div class="slide-header slide-header-ssa">
+                <h1>Eksempel på fagvalg (SSA)</h1>
+                <p>Klikk på fagene for å se hvordan fordypning fungerer</p>
+            </div>
+            <div class="slide-content">
+                <div class="fagvalg-interactive fagvalg-interactive-ssa">
+                    <table class="fagvalg-table-interactive fagvalg-table-ssa">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Matematikk</th>
+                                <th>Programfag 1</th>
+                                <th>Programfag 2</th>
+                                <th>Programfag 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="year-col">VG2</td>
+                                <td class="fag-cell neutral">2P</td>
+                                <td class="fag-cell clickable ssa-clickable" data-fag="okonomi1" data-fordypning="okonomi">Økonomistyring</td>
+                                <td class="fag-cell neutral">Psykologi 1</td>
+                                <td class="fag-cell clickable ssa-clickable" data-fag="samfunn1" data-fordypning="samfunn">Sosiologi og sosialant.</td>
+                            </tr>
+                            <tr>
+                                <td class="year-col">VG3</td>
+                                <td class="fag-cell empty-cell">Tom</td>
+                                <td class="fag-cell clickable ssa-clickable" data-fag="okonomi2" data-fordypning="okonomi" data-requires="okonomi1">Økonomi og ledelse</td>
+                                <td class="fag-cell neutral has-info" id="spansk-info-cell">
+                                    Spansk I+II
+                                    <span class="info-icon" aria-label="Mer informasjon">i</span>
+                                    <div class="speech-bubble" id="spansk-speech-bubble">
+                                        <button class="speech-bubble-close" aria-label="Lukk">&times;</button>
+                                        <p>Dersom du ikke har hatt fremmedsprak pa ungdomsskolen, ma du velge Spansk I+II som et av dine programfag i VG3.</p>
+                                    </div>
+                                </td>
+                                <td class="fag-cell clickable ssa-clickable" data-fag="samfunn2" data-fordypning="samfunn" data-requires="samfunn1">Politikk og mennesker.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- SVG for piler mellom fag -->
+                    <svg class="fordypning-arrows fordypning-arrows-ssa" aria-hidden="true">
+                        <defs>
+                            <marker id="arrowhead-okonomi" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="var(--ssa)" />
+                            </marker>
+                            <marker id="arrowhead-samfunn" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="var(--ssa)" />
+                            </marker>
+                        </defs>
+                        <!-- Økonomi pil -->
+                        <line class="arrow-line okonomi-arrow" x1="0" y1="0" x2="0" y2="0" stroke="var(--ssa)" stroke-width="3" marker-end="url(#arrowhead-okonomi)" />
+                        <!-- Samfunn pil -->
+                        <line class="arrow-line samfunn-arrow" x1="0" y1="0" x2="0" y2="0" stroke="var(--ssa)" stroke-width="3" marker-end="url(#arrowhead-samfunn)" />
+                    </svg>
+
+                    <!-- Fordypning resultat-bokser - plassert under tilhørende kolonner -->
+                    <div class="fordypning-results-row fordypning-results-ssa">
+                        <div class="fordypning-result-placeholder"></div>
+                        <div class="fordypning-result-placeholder"></div>
+                        <div class="fordypning-result fordypning-result-ssa okonomi-result" data-fordypning="okonomi">
+                            Fordypning i Økonomi
+                        </div>
+                        <div class="fordypning-result-placeholder"></div>
+                        <div class="fordypning-result fordypning-result-ssa samfunn-result" data-fordypning="samfunn">
+                            Fordypning i Samfunnsfag
+                        </div>
+                    </div>
+
+                    <!-- Instruksjon -->
+                    <div class="click-instruction">
+                        Klikk på de klikkbare boksene for å velge fag
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Premisser for fagvalg -->
+        <div class="slide" data-slide="12" data-click-reveal="true">
+            <div class="slide-header">
+                <h1>Premisser for fagvalg</h1>
+                <p>Viktig å vite for ditt fagvalg</p>
+            </div>
+            <div class="slide-content">
+                <div class="premisser-list">
+                    <div class="premiss-item" data-delay="0">
+                        <div class="premiss-number">1</div>
+                        <div class="premiss-content">
+                            <p>Du <strong>søker plass</strong> i fag, men er ikke garantert å få den kombinasjonen fag du velger.</p>
+                        </div>
+                    </div>
+                    <div class="premiss-item" data-delay="1">
+                        <div class="premiss-number">2</div>
+                        <div class="premiss-content">
+                            <p>Valget ditt må kunne gi <strong>fordypning</strong> i et programområde og et <strong>gyldig vitnemål</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="premiss-item" data-delay="2">
+                        <div class="premiss-number">3</div>
+                        <div class="premiss-content">
+                            <p>Dersom <strong>for få elever</strong> søker seg til et fag, vil ikke faget tilbys og de som har søkt dette faget må velge et annet fag.</p>
+                        </div>
+                    </div>
+                    <div class="premiss-item" data-delay="3">
+                        <div class="premiss-number">4</div>
+                        <div class="premiss-content">
+                            <p>Dersom grupper blir fulle, vil skolen avgjøre hvem som får plass i hvilke fag basert på programområde, fagkombinasjoner og andre hensyn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Blokkskjema -->
+        <div class="slide" data-slide="13">
+            <div class="slide-header">
+                <h1>Blokkskjema</h1>
+                <p>Slik er fagene fordelt på blokker</p>
+            </div>
+            <div class="slide-content">
+                <div class="blokkskjema-layout">
+                    <div class="three-columns blokkskjema-columns">
+                        <div class="column-card visible">
+                            <div class="icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                            </div>
+                            <h3>4 blokker</h3>
+                            <p>Programfagene fordeles på 4 blokker hvor undervisning foregår parallelt</p>
+                        </div>
+                        <div class="column-card visible">
+                            <div class="icon icon-warning">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </div>
+                            <h3>Samtidig undervisning</h3>
+                            <p>Du kan ikke velge to fag fra samme blokk - disse har undervisning samtidig</p>
+                        </div>
+                        <div class="column-card visible">
+                            <div class="icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    <polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                            </div>
+                            <h3>Kun VG3</h3>
+                            <p>Noen fag er kun tilgjengelig i VG3 (Fysikk 2, Kjemi 2, m.fl.)</p>
+                        </div>
+                    </div>
+                    <div class="blokkskjema-image-container">
+                        <img src="blokkskjema_eksempel.png" alt="Blokkskjema eksempel" class="blokkskjema-image" data-modal-image>
+                        <div class="image-hint">Klikk for å forstørre</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div class="image-modal" id="imageModal">
+            <div class="image-modal-content">
+                <button class="image-modal-close" id="imageModalClose">&times;</button>
+                <img src="" alt="Forstørret bilde" id="modalImage">
+            </div>
+        </div>
+
+        <!-- Slide 14: Kontakt oss -->
+        <div class="slide slide-contact" data-slide="14">
+            <div class="slide-header slide-header-dark">
+                <h1>Spørsmål? Kontakt oss!</h1>
+                <p>Vi er her for å hjelpe deg med fagvalget</p>
+            </div>
+            <div class="slide-content contact-content">
+                <div class="counselors-section">
+                    <div class="counselor-card">
+                        <img src="images/counselors/anna-maroy-austnes.jpg" alt="Anna Marøy Austnes" class="counselor-photo" style="object-position: 55% 20%;">
+                        <div class="counselor-name">Anna Marøy Austnes</div>
+                        <div class="counselor-title">Rådgiver</div>
+                    </div>
+                    <div class="counselor-card">
+                        <img src="images/counselors/fredrik-eidsvaag.jpg" alt="Fredrik Eidsvåg" class="counselor-photo">
+                        <div class="counselor-name">Fredrik Eidsvåg</div>
+                        <div class="counselor-title">Rådgiver</div>
+                    </div>
+                </div>
+
+                <div class="contact-info-box">
+                    <p>Kom innom, send melding, eller avtal tid for samtale</p>
+                </div>
+
+                <div class="four-columns contact-columns">
+                    <a href="https://bergenprivategymnas.no/katalog" target="_blank" class="column-card visible link-card-contact">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Fagkatalog</h3>
+                        <p>Les mer om alle fagene</p>
+                    </a>
+                    <a href="https://utdanning.no" target="_blank" class="column-card visible link-card-contact">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <h3>Utdanning.no</h3>
+                        <p>Utdanning og yrke</p>
+                    </a>
+                    <a href="https://vilbli.no" target="_blank" class="column-card visible link-card-contact">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>Vilbli.no</h3>
+                        <p>Videregående opplæring</p>
+                    </a>
+                    <a href="https://samordnaopptak.no" target="_blank" class="column-card visible link-card-contact">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>Samordna opptak</h3>
+                        <p>Opptak til høyere utdanning</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/presentation.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+/* ============================================
+   LAYOUT CSS - Fagvalg Presentasjon
+   Bergen Private Gymnas
+   ============================================ */
+
+/* ============================================
+   1. SLIDES CONTAINER
+   Hovedcontainer for alle slides
+   ============================================ */
+.slides-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ============================================
+   2. SLIDE BASE
+   Grunnstiler for alle slides
+   ============================================ */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-slow), visibility var(--transition-slow);
+    overflow-y: auto;
+    padding-bottom: 80px;
+}
+
+/* Aktiv slide */
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   3. SLIDE HEADER
+   Header-seksjon for hver slide
+   ============================================ */
+.slide-header {
+    background: linear-gradient(135deg, var(--bpg-dark) 0%, var(--bpg-teal) 100%);
+    color: white;
+    padding: 40px 15%;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekorativ sirkel i header */
+.slide-header::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+/* Header typografi */
+.slide-header h1 {
+    font-family: var(--font-family-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+}
+
+.slide-header p {
+    font-size: 1.15rem;
+    opacity: 0.85;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   4. SLIDE CONTENT
+   Hovedinnhold for hver slide
+   ============================================ */
+.slide-content {
+    flex: 1;
+    padding: 50px 15%;
+    background: var(--bg-white);
+}
+
+/* ============================================
+   5. GRID SYSTEMER
+   Ulike grid-layouts brukt i presentasjonen
+   ============================================ */
+
+/* -----------------------------------------
+   5.1 Three Columns Grid
+   Brukes for 3-kolonners layout
+   ----------------------------------------- */
+.three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* -----------------------------------------
+   5.2 Program Grid
+   Brukes for programomrader-korter
+   ----------------------------------------- */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* -----------------------------------------
+   5.3 Fordypning Grid
+   Brukes for fordypningskategorier
+   ----------------------------------------- */
+.fordypning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* -----------------------------------------
+   5.4 Contact Grid
+   Brukes for kontaktinformasjon
+   ----------------------------------------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* -----------------------------------------
+   5.5 Fag Comparison Grid
+   Brukes for sammenligning fellesfag/programfag
+   ----------------------------------------- */
+.fag-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* -----------------------------------------
+   5.6 Links Grid
+   Brukes for lenker i veien videre
+   ----------------------------------------- */
+.links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ============================================
+   6. RESPONSIVE GRID
+   Tilpasninger for mindre skjermer
+   ============================================ */
+
+/* Tablet og mindre skjermer */
+@media (max-width: 900px) {
+    .slide-header {
+        padding: 30px 5%;
+    }
+
+    .slide-content {
+        padding: 30px 5%;
+    }
+
+    /* Alle grids til enkeltkolonne */
+    .three-columns,
+    .program-grid,
+    .fag-comparison,
+    .fordypning-grid,
+    .links-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+    .slide-header h1 {
+        font-size: 1.8rem;
+    }
+}
