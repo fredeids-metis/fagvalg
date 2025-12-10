@@ -1400,6 +1400,24 @@
     font-style: italic;
 }
 
+/* Overlay bar for eksempel-bilder */
+.example-overlay-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(40, 40, 40, 0.75);
+    color: white;
+    padding: 20px;
+    font-family: 'jubilat', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    border-radius: 0 0 12px 12px;
+}
+
 /* Image Modal */
 .image-modal {
     display: none;
