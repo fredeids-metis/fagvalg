@@ -1212,6 +1212,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
+    // QR Code Modal
+    // ============================================
+    const qrModal = document.getElementById('qrModal');
+    const qrModalClose = document.getElementById('qrModalClose');
+    const qrCodeTrigger = document.getElementById('qrCodeTrigger');
+    const qrModalBackdrop = qrModal ? qrModal.querySelector('.qr-modal-backdrop') : null;
+
+    /**
+     * Open QR modal
+     */
+    function openQrModal() {
+        if (!qrModal) return;
+        qrModal.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+    }
+
+    /**
+     * Close QR modal
+     */
+    function closeQrModal() {
+        if (!qrModal) return;
+        qrModal.classList.remove('visible');
+        document.body.style.overflow = '';
+    }
+
+    // Click on QR code image to open modal
+    if (qrCodeTrigger) {
+        qrCodeTrigger.style.cursor = 'pointer';
+        qrCodeTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openQrModal();
+        });
+    }
+
+    // Close modal on X button click
+    if (qrModalClose) {
+        qrModalClose.addEventListener('click', closeQrModal);
+    }
+
+    // Close modal on backdrop click
+    if (qrModalBackdrop) {
+        qrModalBackdrop.addEventListener('click', closeQrModal);
+    }
+
+    // Close QR modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && qrModal && qrModal.classList.contains('visible')) {
+            closeQrModal();
+        }
+    });
+
+    // ============================================
     // Start Presentation
     // ============================================
     init();

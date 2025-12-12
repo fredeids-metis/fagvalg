@@ -1712,9 +1712,35 @@
 
 .counselors-section {
     display: flex;
-    gap: 80px;
+    gap: 40px;
     justify-content: center;
     width: 100%;
+}
+
+/* QR-kode kort styling */
+.qr-card {
+    background: white;
+}
+
+.qr-link {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.qr-link:hover {
+    transform: scale(1.05);
+}
+
+.qr-code-image {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.qr-card .counselor-title {
+    color: #c62828;
+    font-weight: 600;
 }
 
 .counselor-card {
