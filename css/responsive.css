@@ -141,4 +141,8 @@
     .four-columns {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .six-columns {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

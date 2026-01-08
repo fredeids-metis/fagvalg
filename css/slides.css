@@ -1685,6 +1685,26 @@
     width: 100%;
 }
 
+.six-columns {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+.six-columns .column-card h3 {
+    font-size: 0.95rem;
+}
+
+.six-columns .column-card p {
+    font-size: 0.8rem;
+}
+
+.six-columns .column-card .icon {
+    width: 36px;
+    height: 36px;
+}
+
 .contact-columns {
     margin-top: auto;
 }

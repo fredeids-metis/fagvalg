@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Presentation State
     // ============================================
     let currentSlide = 1;
-    const totalSlides = 14;
+    const totalSlides = 13;
 
     // Click-reveal state: tracks which element index to show next per slide
     const clickRevealState = {};

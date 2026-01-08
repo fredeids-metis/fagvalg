@@ -413,6 +413,70 @@
     color: #7c6f00;
 }
 
+/* MK kategori - blå */
+.fordypning-category.mk h3 {
+    border-color: var(--mk);
+    color: var(--mk-dark);
+}
+
+.fordypning-category.mk .fag-1,
+.fordypning-category.mk .fag-2 {
+    background: var(--mk-light);
+    color: var(--mk-dark);
+}
+
+/* Musikk kategori - oransje/rød */
+.fordypning-category.musikk h3 {
+    border-color: var(--musikk);
+    color: var(--musikk-dark);
+}
+
+.fordypning-category.musikk .fag-1,
+.fordypning-category.musikk .fag-2 {
+    background: var(--musikk-light);
+    color: var(--musikk-dark);
+}
+
+/* Ingen fordypning seksjon */
+.ingen-fordypning-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #ccc;
+}
+
+.ingen-fordypning-section h4 {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.ingen-fordypning-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ingen-fordypning-item {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.ingen-fordypning-item.mk {
+    background: var(--mk-light);
+    color: var(--mk-dark);
+    border: 1px solid var(--mk);
+}
+
+.ingen-fordypning-item.musikk {
+    background: var(--musikk-light);
+    color: var(--musikk-dark);
+    border: 1px solid var(--musikk);
+}
+
 .pair-arrow {
     color: var(--text-light);
 }
@@ -1003,7 +1067,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: auto;
+    margin-top: 15px;
 }
 
 /* Fag-eksempel blokker */
@@ -1035,6 +1099,22 @@
     background: var(--bpg-green);
     color: white;
     border: 2px solid var(--realfag-dark);
+}
+
+/* SSA blokker - gul stil */
+.fag-example-block.ssa-block {
+    background: var(--ssa);
+    color: #333;
+    border: 2px solid var(--ssa-dark);
+}
+
+/* Mer-blokk for å indikere at listen fortsetter */
+.fag-example-block.more-block {
+    background: #f0f0f0;
+    color: #888;
+    border: 2px dashed #ccc;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
 }
 
 /* Visuell divider mellom kolonnene */
