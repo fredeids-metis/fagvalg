@@ -732,6 +732,39 @@
     color: var(--realfag-dark);
 }
 
+/* OBS-variant av fordypning-requirement - lyserød/oransje */
+.fordypning-requirement.warning {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+}
+
+.fordypning-requirement.warning strong {
+    color: #e65100;
+}
+
+.fordypning-requirement.warning .obs-label {
+    display: inline-block;
+    background: #ff9800;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+/* Grønn informasjonsboks for tilleggspoeng */
+.fordypning-info {
+    background: #e8f5e9;
+    border: 2px solid var(--bpg-green);
+    padding: 20px 25px;
+    border-radius: 12px;
+    text-align: center;
+    color: #2e7d32;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
 .fordypning-note {
     margin-top: 15px;
     padding: 15px 20px;
